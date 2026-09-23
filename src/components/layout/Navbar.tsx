@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, PhoneCall, MessageCircle } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0a0f1c]/90 backdrop-blur-md border-b border-white/10 py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-background/90 backdrop-blur-md border-b border-card-border py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -52,7 +53,7 @@ export default function Navbar() {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -61,12 +62,13 @@ export default function Navbar() {
           </ul>
           
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Link 
               href="tel:+919350522272"
-              className="p-2 rounded-full glass hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full glass hover:bg-accent transition-colors"
               aria-label="Call Now"
             >
-              <PhoneCall className="w-4 h-4 text-slate-300" />
+              <PhoneCall className="w-4 h-4 text-muted-foreground" />
             </Link>
             <Link 
               href="https://wa.me/919350522272"
@@ -79,25 +81,28 @@ export default function Navbar() {
             </Link>
             <Link
               href="/cars"
-              className="px-6 py-2.5 bg-white text-black font-semibold rounded-full hover:bg-slate-200 transition-all hover:scale-105"
+              className="px-6 py-2.5 bg-foreground text-background font-semibold rounded-full hover:opacity-90 transition-all hover:scale-105"
             >
               Book a Car
             </Link>
           </div>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden z-50 p-2 text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Menu Toggle & Theme */}
+        <div className="md:hidden flex items-center gap-4 z-50">
+          <ThemeToggle />
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
       <div
-        className={`fixed inset-0 bg-[#0a0f1c] z-40 transition-transform duration-300 flex flex-col pt-24 px-6 ${
+        className={`fixed inset-0 bg-background z-40 transition-transform duration-300 flex flex-col pt-24 px-6 ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
@@ -106,7 +111,7 @@ export default function Navbar() {
             <li key={link.name}>
               <Link
                 href={link.href}
-                className="font-medium text-white block"
+                className="font-medium text-foreground block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -117,7 +122,7 @@ export default function Navbar() {
         <div className="mt-auto pb-10 flex flex-col gap-4">
           <Link
             href="/cars"
-            className="w-full py-4 bg-white text-black text-center font-bold rounded-xl"
+            className="w-full py-4 bg-foreground text-background text-center font-bold rounded-xl"
             onClick={() => setMobileMenuOpen(false)}
           >
             Book a Car
@@ -133,7 +138,7 @@ export default function Navbar() {
               href="https://wa.me/919350522272"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-3 bg-green-600 rounded-xl flex items-center justify-center gap-2 font-medium text-white"
+              className="flex-1 py-3 bg-green-600 rounded-xl flex items-center justify-center gap-2 font-medium text-foreground"
             >
               <MessageCircle className="w-4 h-4" /> WhatsApp
             </Link>

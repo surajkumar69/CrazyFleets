@@ -30,25 +30,25 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-[#050813] border-y border-white/5 relative">
+    <section id="how-it-works" className="py-24 bg-muted border-y border-card-border relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           
           {/* Image Side */}
-          <div className="w-full lg:w-1/2 relative h-[500px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+          <div className="w-full lg:w-1/2 relative h-[500px] rounded-3xl overflow-hidden border border-card-border shadow-2xl">
             <Image 
               src="/images/how_it_works.jpg"
               alt="Unlock your car with Crazy Fleets"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050813]/80 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 dark:from-[#050813]/80 via-transparent to-transparent"></div>
           </div>
 
           {/* Content Side */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-4xl font-bold text-white mb-4">How It Works</h2>
-            <p className="text-slate-400 text-lg mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">How It Works</h2>
+            <p className="text-muted-foreground text-lg mb-12">
               Renting a premium self-drive car is easy, fast, and completely hassle-free with Crazy Fleets.
             </p>
 
@@ -57,19 +57,19 @@ export default function HowItWorks() {
                 <div key={index} className="flex gap-6 items-start relative">
                   {/* Connector Line */}
                   {index !== steps.length - 1 && (
-                    <div className="absolute left-7 top-14 bottom-[-30px] w-[1px] bg-white/10"></div>
+                    <div className="absolute left-7 top-14 bottom-[-30px] w-[1px] bg-accent"></div>
                   )}
                   
-                  <div className="w-14 h-14 rounded-full glass border border-blue-500/30 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)] z-10">
-                    <step.icon className="w-6 h-6 text-blue-400" />
+                  <div className="w-14 h-14 rounded-full glass border border-blue-200 dark:border-blue-500/30 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)] z-10">
+                    <step.icon className="w-6 h-6 text-primary" />
                   </div>
                   
                   <div className="pt-2">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-sm font-bold text-blue-500">{step.num}</span>
-                      <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                      <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
                     </div>
-                    <p className="text-slate-400 leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {step.desc}
                     </p>
                   </div>

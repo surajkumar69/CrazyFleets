@@ -1,8 +1,50 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+}
+
 :root {
-  --background: #0a0f1c;
-  --foreground: #e2e8f0;
+  /* Page background: #F8FAFC */
+  --background: #f8fafc;
+  /* Primary text: #0F172A */
+  --foreground: #0f172a; 
+  /* Cards: #FFFFFF */
+  --card: #ffffff;
+  /* Card border: #E2E8F0 */
+  --card-border: #e2e8f0; 
+  /* Primary button: Dark navy / professional blue */
+  --primary: #1e3a8a; 
+  /* Button text: White */
+  --primary-foreground: #ffffff;
+  /* Main section background (formerly muted): #FFFFFF */
+  --muted: #ffffff; 
+  /* Muted text: #64748B */
+  --muted-foreground: #64748b; 
+  /* Secondary text: #475569 (Using this for slate-600 explicitly in components, or mapped here) */
+  --accent: #e2e8f0; 
+}
+
+.dark {
+  --background: #0a0f1c; /* dark navy */
+  --foreground: #ffffff;
+  --card: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --primary: #3b82f6; /* blue-500 */
+  --primary-foreground: #ffffff;
+  --muted: #050813;
+  --muted-foreground: #94a3b8; /* slate-400 */
+  --accent: rgba(255, 255, 255, 0.05);
 }
 
 body {
@@ -10,26 +52,54 @@ body {
   color: var(--foreground);
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Base utility classes for smooth transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .glass {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+.dark .glass {
+  box-shadow: none;
 }
 
 .glass-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+.dark .glass-card {
+  box-shadow: none;
 }
 
 .glass-card:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--card);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.dark .glass-card:hover {
+  background-color: var(--accent);
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .accent-glow {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  /* Only applied in dark mode via .dark prefix */
+}
+.dark .accent-glow {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 }

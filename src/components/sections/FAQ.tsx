@@ -50,11 +50,11 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-[#050813] border-t border-white/5">
+    <section id="faq" className="py-24 bg-muted border-t border-card-border">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-          <p className="text-slate-400 text-lg">
+          <h2 className="text-4xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground text-lg">
             Everything you need to know about renting a car with Crazy Fleets.
           </p>
         </div>
@@ -64,16 +64,16 @@ export default function FAQ() {
             <div 
               key={index}
               className={`glass rounded-2xl overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'border-blue-500/50' : 'border-white/5 hover:border-white/20'
+                openIndex === index ? 'border-blue-500/50' : 'border-card-border hover:border-card-border'
               }`}
             >
               <button
                 className="w-full px-6 py-5 flex items-center justify-between text-left"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-lg font-medium text-white pr-8">{faq.question}</span>
+                <span className="text-lg font-medium text-foreground pr-8">{faq.question}</span>
                 <ChevronDown 
-                  className={`w-5 h-5 text-blue-400 shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`} 
                 />
@@ -84,7 +84,7 @@ export default function FAQ() {
                   openIndex === index ? 'max-h-40 pb-5 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <p className="text-slate-400">{faq.answer}</p>
+                <p className="text-muted-foreground">{faq.answer}</p>
               </div>
             </div>
           ))}

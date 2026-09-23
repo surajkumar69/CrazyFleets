@@ -23,11 +23,11 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-24 bg-[#0a0f1c]">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">What Our Customers Say</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-foreground mb-6">What Our Customers Say</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Real experiences from people who chose the freedom to drive with us.
           </p>
         </div>
@@ -41,18 +41,18 @@ export default function Testimonials() {
                     <Star key={i} className="w-5 h-5 fill-yellow-500 text-yellow-500" />
                   ))}
                 </div>
-                <p className="text-slate-300 leading-relaxed italic mb-8">
+                <p className="text-muted-foreground leading-relaxed italic mb-8">
                   &quot;{review.review}&quot;
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-xl font-bold text-white">
+              <div className="flex items-center gap-4 border-t border-card-border pt-6">
+                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-xl font-bold text-foreground">
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">{review.name}</h4>
-                  <p className="text-sm text-slate-400">{review.role}</p>
+                  <h4 className="font-bold text-foreground">{review.name}</h4>
+                  <p className="text-sm text-muted-foreground">{review.role}</p>
                 </div>
               </div>
             </div>
