@@ -35,12 +35,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50">
-          <div className="relative w-32 h-10 md:w-40 md:h-12">
+          <div className="relative w-32 h-10 md:w-40 md:h-12 bg-white rounded-lg shadow-sm overflow-hidden flex items-center justify-center p-1">
             <Image 
               src="/images/logo.jpg" 
               alt="Crazy Fleets Logo" 
               fill 
-              className="object-contain"
+              className="object-contain p-1"
               priority
             />
           </div>

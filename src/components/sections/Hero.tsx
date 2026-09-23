@@ -37,7 +37,7 @@ Please share the available cars and pricing.`;
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center pt-32 pb-32 md:pb-20 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -70,7 +70,7 @@ Please share the available cars and pricing.`;
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Link
               href="/cars"
-              className="px-8 py-4 bg-foreground text-background font-semibold rounded-full text-center hover:opacity-90 transition-all hover:scale-105"
+              className="px-8 py-3 md:py-4 bg-foreground text-background font-semibold rounded-full text-center hover:opacity-90 transition-all hover:scale-105"
             >
               Explore Cars
             </Link>
@@ -78,7 +78,7 @@ Please share the available cars and pricing.`;
               href="https://wa.me/919350522272?text=Hello%20Crazy%20Fleets,%20I%20want%20to%20book%20a%20self-drive%20car."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 glass text-foreground font-semibold rounded-full text-center hover:bg-accent transition-all border border-card-border"
+              className="px-8 py-3 md:py-4 glass text-foreground font-semibold rounded-full text-center hover:bg-accent transition-all border border-card-border"
             >
               Book on WhatsApp
             </Link>
@@ -86,8 +86,8 @@ Please share the available cars and pricing.`;
         </div>
 
         {/* Booking Card */}
-        <div className="w-full lg:w-[450px]">
-          <div className="glass-card p-8 accent-glow relative overflow-hidden">
+        <div className="w-full lg:w-[450px] mt-4 md:mt-0">
+          <div className="glass-card p-6 md:p-8 accent-glow relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
             <h3 className="text-2xl font-bold text-foreground mb-6">Quick Search</h3>
             

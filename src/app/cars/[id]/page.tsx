@@ -5,8 +5,9 @@ import { cars } from "@/lib/data";
 import { Users, Fuel, Settings, Check, AlertCircle } from "lucide-react";
 import BookingForm from "@/components/sections/BookingForm";
 
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const car = cars.find(c => c.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const car = cars.find(c => c.id === resolvedParams.id);
   if (!car) return { title: "Car Not Found" };
   
   return {
@@ -21,8 +22,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CarDetailsPage({ params }: { params: { id: string } }) {
-  const car = cars.find(c => c.id === params.id);
+export default async function CarDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const car = cars.find(c => c.id === resolvedParams.id);
 
   if (!car) {
     notFound();
@@ -145,8 +147,25 @@ export default function CarDetailsPage({ params }: { params: { id: string } }) {
           </div>
 
           {/* Sidebar / Booking Form */}
-          <div className="w-full lg:w-1/3 relative">
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 relative">
             <BookingForm car={car} />
+            
+            <div className="glass-card p-6 border border-card-border flex flex-col gap-4">
+              <h3 className="text-lg font-bold text-foreground">Need Help?</h3>
+              <p className="text-sm text-muted-foreground mb-2">Have questions about this {car.name}? Call us directly.</p>
+              <Link 
+                href="tel:+919350522272"
+                className="w-full py-4 bg-muted text-foreground border border-card-border font-bold rounded-xl text-center hover:bg-accent transition-colors flex items-center justify-center gap-2"
+              >
+                Call +91 9350522272
+              </Link>
+              <Link 
+                href="/cars"
+                className="w-full py-4 bg-transparent text-foreground border border-card-border font-medium rounded-xl text-center hover:bg-accent transition-colors mt-2"
+              >
+                Back to All Cars
+              </Link>
+            </div>
           </div>
 
         </div>
