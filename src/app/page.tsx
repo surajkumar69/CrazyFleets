@@ -2,6 +2,7 @@ import Hero from "@/components/sections/Hero";
 import FleetPreview from "@/components/sections/FleetPreview";
 import HowItWorks from "@/components/sections/HowItWorks";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import PartnerProgram from "@/components/sections/PartnerProgram";
 import LocationSection from "@/components/sections/LocationSection";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -13,6 +14,7 @@ export default function Home() {
       <FleetPreview />
       <HowItWorks />
       <WhyChooseUs />
+      <PartnerProgram />
       <LocationSection />
       <Testimonials />
       <FAQ />

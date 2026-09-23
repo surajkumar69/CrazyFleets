@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, MapPin, Clock } from "lucide-react";
+import { Calendar, MapPin, Clock, Car } from "lucide-react";
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ export default function Hero() {
     pickupTime: "",
     returnDate: "",
     returnTime: "",
+    carType: "Any",
     pickupLocation: "Bestech City Centre, Dharuhera"
   });
 
@@ -23,6 +24,7 @@ export default function Hero() {
     const text = `Hello Crazy Fleets,
 I want to inquire about self-drive cars.
 
+Car Type: ${formData.carType}
 Pickup Date: ${formData.pickupDate}
 Pickup Time: ${formData.pickupTime}
 Return Date: ${formData.returnDate}
@@ -54,7 +56,10 @@ Please share the available cars and pricing.`;
         {/* Text Content */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6 py-10 lg:py-0">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight">
-            Drive Without <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 dark:from-blue-400 dark:to-slate-200">Limits</span>
+            Rent Your Car.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 dark:from-blue-400 dark:to-slate-200">
+              Drive Your Way.
+            </span>
           </h1>
           <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
             Premium self-drive cars for every journey.
@@ -88,18 +93,39 @@ Please share the available cars and pricing.`;
             
             <form className="flex flex-col gap-4 relative z-10" onSubmit={handleWhatsAppSearch}>
               
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">Pickup Location</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <select 
-                    name="pickupLocation"
-                    value={formData.pickupLocation}
-                    onChange={handleInputChange}
-                    className="w-full bg-muted border border-card-border rounded-xl py-3 pl-10 pr-4 text-foreground appearance-none focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="Bestech City Centre, Dharuhera">Bestech City Centre, Dharuhera</option>
-                  </select>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground">Location</label>
+                  <div className="relative">
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <select 
+                      name="pickupLocation"
+                      value={formData.pickupLocation}
+                      onChange={handleInputChange}
+                      className="w-full bg-muted border border-card-border rounded-xl py-3 pl-9 pr-4 text-foreground text-sm appearance-none focus:outline-none focus:border-blue-500"
+                    >
+                      <option value="Dharuhera">Dharuhera</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground">Car Type</label>
+                  <div className="relative">
+                    <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <select 
+                      name="carType"
+                      value={formData.carType}
+                      onChange={handleInputChange}
+                      className="w-full bg-muted border border-card-border rounded-xl py-3 pl-9 pr-4 text-foreground text-sm appearance-none focus:outline-none focus:border-blue-500"
+                    >
+                      <option value="Any">Any Car</option>
+                      <option value="Hatchback">Hatchback</option>
+                      <option value="Sedan">Sedan</option>
+                      <option value="SUV">SUV</option>
+                      <option value="Luxury">Luxury</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
