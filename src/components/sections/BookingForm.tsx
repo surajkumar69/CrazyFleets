@@ -13,7 +13,6 @@ export default function BookingForm({ car }: { car: Car }) {
     returnTime: "",
     name: "",
     phone: "",
-    email: "",
     pickupLocation: "Bestech City Centre, Dharuhera",
     returnLocation: "Bestech City Centre, Dharuhera",
     message: ""
@@ -43,7 +42,7 @@ Please share availability and pricing.`;
 
   const isStep2Valid = formData.pickupDate && formData.pickupTime;
   const isStep3Valid = formData.returnDate && formData.returnTime;
-  const isStep4Valid = formData.name && formData.phone && formData.email;
+  const isStep4Valid = formData.name && formData.phone;
 
   return (
     <div className="glass-card p-6 md:p-8 border border-white/10 sticky top-32">
@@ -176,19 +175,6 @@ Please share availability and pricing.`;
                   name="phone"
                   placeholder="Mobile Number"
                   value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white text-sm focus:outline-none focus:border-blue-500" 
-                />
-              </div>
-            </div>
-            <div>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
                   onChange={handleInputChange}
                   className="w-full bg-slate-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white text-sm focus:outline-none focus:border-blue-500" 
                 />

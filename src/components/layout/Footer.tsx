@@ -102,12 +102,6 @@ export default function Footer() {
                   +91 9350522272
                 </Link>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-slate-400 shrink-0" />
-                <Link href="mailto:info@crazyfleets.com" className="text-slate-400 hover:text-white text-sm">
-                  info@crazyfleets.com
-                </Link>
-              </li>
             </ul>
           </div>
 
